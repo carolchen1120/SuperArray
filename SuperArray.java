@@ -22,4 +22,9 @@ public class SuperArray {
     return true;
   }
 
+  // Returns the element at the specified position in this list. [For Now Assume the index is 0 to size-1]
+  public String get(int index) {
+    return this.data[index];
+  }
+
 }
