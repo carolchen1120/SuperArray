@@ -18,18 +18,27 @@ public class TesterSA {
     // System.out.println(mySuper.get(0));
     // System.out.println(mySuper.get(1));
 
-    mySuper.add("C");
-    mySuper.add("A");
-    mySuper.add("R");
-    mySuper.add("O");
-    mySuper.add("L");
-    mySuper.add("C");
-    mySuper.add("H");
-    mySuper.add("E");
-    mySuper.add("N");
-    mySuper.add("hi");
+    // mySuper.add("C");
+    // mySuper.add("A");
+    // mySuper.add("R");
+    // mySuper.add("O");
+    // mySuper.add("L");
+    // mySuper.add("C");
+    // mySuper.add("H");
+    // mySuper.add("E");
+    // mySuper.add("N");
+    // mySuper.add("hi");
+    //
+    // mySuper.add("bye");
+    // System.out.println(mySuper.get(10));
 
-    mySuper.add("bye");
-    System.out.println(mySuper.get(10));
+
+    SuperArray words = new SuperArray();
+    words.add("kani");
+    words.add("uni");
+    words.add("ebi");
+    for (int i = 0; i < words.size(); i++) {
+      System.out.println(words.get(i));
+    }
   }
 }
