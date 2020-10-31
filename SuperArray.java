@@ -15,9 +15,11 @@ public class SuperArray {
     return this.size;
   }
 
-  // // Appends the specified element to the end of this list
-  // public boolean add(String element) {
-  //   this.data =
-  // }
+  // Appends the specified element to the end of this list
+  public boolean add(String element) {
+    this.data[this.size] = element;
+    this.size++;
+    return true;
+  }
 
 }
