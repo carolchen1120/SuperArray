@@ -27,4 +27,14 @@ public class SuperArray {
     return this.data[index];
   }
 
+  // Replaces the element at the specified position in this list with the specified element.
+  // Return the value you replaced.
+  // [Assume the index is 0 to size-1] note: This is not to add new values, it is only to replace old ones.
+  public String set(int index, String element) {
+    String value = this.data[index];
+    this.data[index] = element;
+    return value;
+  }
+
+
 }

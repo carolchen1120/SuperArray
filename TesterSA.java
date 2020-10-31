@@ -11,5 +11,11 @@ public class TesterSA {
     System.out.println(mySuper.get(0));
     System.out.println(mySuper.get(1));
     System.out.println(mySuper.get(2));
+
+    System.out.println(mySuper.set(0, "roar"));
+    System.out.println(mySuper.set(1, "chirp"));
+
+    System.out.println(mySuper.get(0));
+    System.out.println(mySuper.get(1));
   }
 }
