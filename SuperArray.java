@@ -16,7 +16,13 @@ public class SuperArray {
   }
 
   // Appends the specified element to the end of this list
+  // -Appends the specified element to the end of this list.
+  // -When the capacity is full, resize before adding
   public boolean add(String element) {
+    if (this.data.length == this.size) {
+      this.resize();
+    }
+
     this.data[this.size] = element;
     this.size++;
     return true;
@@ -35,6 +41,19 @@ public class SuperArray {
     this.data[index] = element;
     return value;
   }
+
+  // -Increase the capacity by :
+  // creating a larger array
+  // copy the values from the original array to the new one.
+  // assign the new one to the instance variable.
+  private void resize() {
+    String[] newSuper = new String[this.size + 1];
+    for (int i = 0; i < this.size; i++) {
+      newSuper[i] = data[i];
+    }
+    this.data = newSuper;
+  }
+
 
 
 }
