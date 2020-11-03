@@ -54,6 +54,31 @@ public class SuperArray {
     this.data = newSuper;
   }
 
+  // Returns true if this list contains no elements.
+  public boolean isEmpty() {
+    return (this.size == 0);
+  }
 
+  // Format "[e0, e1, e2,..., eN]" where the size is N+1
+  // This only displays the elements that were added, not the empty spots
+  public String toString() {
+    String answer = "[";
+    for (int i = 0; i < this.size-1; i++) {
+      if (!this.data[i].equals("")) {
+        answer += this.data[i] + ", ";
+      }
+    }
+    return answer + "]";
+  }
+
+  // Returns true if this list contains the specified element.
+  public boolean contains(String s) {
+    for (int i = 0; i < this.size; i++) {
+      if (this.data[i] == s) {
+        return true;
+      }
+    }
+    return false;
+  }
 
 }
