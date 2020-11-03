@@ -40,5 +40,15 @@ public class TesterSA {
     for (int i = 0; i < words.size(); i++) {
       System.out.println(words.get(i));
     }
+
+    System.out.println(words.toString());
+
+    SuperArray empty = new SuperArray();
+    System.out.println(empty.isEmpty());
+    System.out.println(words.isEmpty());
+
+    System.out.println(words.contains("uni"));
+    System.out.println(words.contains("meow"));
+
   }
 }

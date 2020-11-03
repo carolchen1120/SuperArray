@@ -68,7 +68,7 @@ public class SuperArray {
         answer += this.data[i] + ", ";
       }
     }
-    return answer + "]";
+    return answer + this.data[this.size-1] + "]";
   }
 
   // Returns true if this list contains the specified element.
