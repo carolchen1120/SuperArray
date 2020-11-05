@@ -83,7 +83,7 @@ public class SuperArray {
 
   // Reset the SuperArray to be size 0 again. There should be no references to any old values in the array.
   public void clear() {
-    this.data = [];
+    this.data = new String[10];
     this.size = 0;
   }
 
