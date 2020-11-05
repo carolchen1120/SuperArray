@@ -81,4 +81,67 @@ public class SuperArray {
     return false;
   }
 
+  // Reset the SuperArray to be size 0 again. There should be no references to any old values in the array.
+  public void clear() {
+    this.data = [];
+    this.size = 0;
+  }
+
+
+  // Create the SuperArray with the provided starting capacity.
+  public SuperArray(int initialCapacity) {
+    this.data = new String[initialCapacity];
+    this.size = 0;
+  }
+
+
+  // Inserts the specified element at the specified position in this list. Shifts the element currently at that position (if any) and any subsequent elements to the right.
+  public void add(int index, String element) {
+    String[] newArray = new String[this.size+1];
+    for (int i = 0; i < index; i++) {
+      newArray[i] = this.data[i];
+    }
+    newArray[index] = element;
+    for (int j = index+1; j < this.size+1; j++) {
+      newArray[j] = this.data[j-1];
+    }
+    this.data = newArray;
+  }
+
+
+  // Removes the element at the specified position in this list.  Shifts any subsequent elements to the left. The returned value is the element you remove.
+  public String remove(int index) {
+    String[] newArray = new String[this.size - 1];
+    for (int i = 0; i < index; i++) {
+      newArray[i] = this.data[i];
+    }
+    for (int j = index+1; j < this.size-1; j++) {
+      newArray[j] = this.data[j+1];
+    }
+    this.data = newArray;
+  }
+
+
+  // Returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.
+  public int indexOf(String s) {
+    for (int i = 0; i < this.size; i++) {
+      if (this.data[i] == s) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+
+  // Returns an array containing all of the elements in this list in proper sequence (from first to last element).
+  // The returned array will be "safe" in that no references to it are maintained by this list. (In other words, this method must allocate a new array).
+  public String[] toArray() {
+    String[] newArray = new String[this.size];
+    for (int i  = 0; i < this.size; i++) {
+      newArray[i] = this.data[i];
+    }
+    return newArray;
+  }
+
+
 }
