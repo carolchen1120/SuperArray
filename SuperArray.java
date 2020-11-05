@@ -111,6 +111,7 @@ public class SuperArray {
 
   // Removes the element at the specified position in this list.  Shifts any subsequent elements to the left. The returned value is the element you remove.
   public String remove(int index) {
+    String answer = "";
     String[] newArray = new String[this.size - 1];
     for (int i = 0; i < index; i++) {
       newArray[i] = this.data[i];
@@ -118,7 +119,9 @@ public class SuperArray {
     for (int j = index+1; j < this.size-1; j++) {
       newArray[j] = this.data[j+1];
     }
+    answer = this.data[index];
     this.data = newArray;
+    return answer;
   }
 
 
@@ -144,11 +147,11 @@ public class SuperArray {
   }
 
 
-  // Create the SuperArray with the provided starting capacity.
-  public SuperArray(int initialCapacity) {
-    this.size = 0;
-    this.data = new String[initialCapacity];
-  }
+  // // Create the SuperArray with the provided starting capacity.
+  // public SuperArray(int initialCapacity) {
+  //   this.size = 0;
+  //   this.data = new String[initialCapacity];
+  // }
 
 
 
