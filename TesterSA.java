@@ -37,18 +37,26 @@ public class TesterSA {
     words.add("kani");
     words.add("uni");
     words.add("ebi");
+    words.add("toro");
+    words.add("tamago");
     for (int i = 0; i < words.size(); i++) {
       System.out.println(words.get(i));
     }
 
     System.out.println(words.toString());
 
-    SuperArray empty = new SuperArray();
-    System.out.println(empty.isEmpty());
-    System.out.println(words.isEmpty());
+    // SuperArray empty = new SuperArray();
+    // System.out.println(empty.isEmpty());
+    // System.out.println(words.isEmpty());
+    //
+    // System.out.println(words.contains("uni"));
+    // System.out.println(words.contains("meow"));
+    //
+    // System.out.println(words.remove(2));
+    // System.out.println(words.toString());
 
-    System.out.println(words.contains("uni"));
-    System.out.println(words.contains("meow"));
+    System.out.println(words.remove(0));
+    System.out.println(words.toString());
 
   }
 }

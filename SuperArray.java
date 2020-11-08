@@ -111,16 +111,19 @@ public class SuperArray {
 
   // Removes the element at the specified position in this list.  Shifts any subsequent elements to the left. The returned value is the element you remove.
   public String remove(int index) {
-    String answer = "";
+    String answer = this.data[index];
     String[] newArray = new String[this.size - 1];
-    for (int i = 0; i < index; i++) {
-      newArray[i] = this.data[i];
+    for (int i = 0; i < this.size; i++) {
+      if (i < index) {
+          newArray[i] = this.data[i];
+      } else if (i > index) {
+          newArray[i-1] = this.data[i];
+      } else {
+          continue;
+      }
     }
-    for (int j = index+1; j < this.size-1; j++) {
-      newArray[j] = this.data[j+1];
-    }
-    answer = this.data[index];
     this.data = newArray;
+    this.size--;
     return answer;
   }
 
@@ -153,6 +156,12 @@ public class SuperArray {
   //   this.data = new String[initialCapacity];
   // }
 
+
+  //
+  // // When there are duplicates: all elements with the same value but higher index will be removed [you keep the first occurrence of each value]. This could be written as a part of the super array class. I want you to instead learn to work with it as an object. Do not make a second SuperArray as you are modifying the parameter to have no duplicates.
+  // public static void removeDuplicates(SuperArray s){
+  //
+  // }
 
 
   //
