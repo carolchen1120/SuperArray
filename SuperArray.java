@@ -149,19 +149,9 @@ public class SuperArray {
     return newArray;
   }
 
+  public int lastIndexOf(String value){
 
-  // // Create the SuperArray with the provided starting capacity.
-  // public SuperArray(int initialCapacity) {
-  //   this.size = 0;
-  //   this.data = new String[initialCapacity];
-  // }
-
-
-  //
-  // // When there are duplicates: all elements with the same value but higher index will be removed [you keep the first occurrence of each value]. This could be written as a part of the super array class. I want you to instead learn to work with it as an object. Do not make a second SuperArray as you are modifying the parameter to have no duplicates.
-  // public static void removeDuplicates(SuperArray s){
-  //
-  // }
+  }
 
 
   //
