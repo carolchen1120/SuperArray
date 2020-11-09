@@ -1,6 +1,6 @@
 public class TesterSA {
   public static void main(String[]args) {
-    SuperArray mySuper = new SuperArray();
+    SuperArray mySuper = new SuperArray(10);
 
     // System.out.println(mySuper.add("hi"));
     // System.out.println(mySuper.add("bye"));
@@ -33,17 +33,17 @@ public class TesterSA {
     // System.out.println(mySuper.get(10));
 
 
-    SuperArray words = new SuperArray();
-    words.add("kani");
-    words.add("uni");
-    words.add("ebi");
-    words.add("toro");
-    words.add("tamago");
-    for (int i = 0; i < words.size(); i++) {
-      System.out.println(words.get(i));
-    }
-
-    System.out.println(words.toString());
+    // SuperArray words = new SuperArray();
+    // words.add("kani");
+    // words.add("uni");
+    // words.add("ebi");
+    // words.add("toro");
+    // words.add("tamago");
+    // for (int i = 0; i < words.size(); i++) {
+    //   System.out.println(words.get(i));
+    // }
+    //
+    // System.out.println(words.toString());
 
     // SuperArray empty = new SuperArray();
     // System.out.println(empty.isEmpty());
@@ -54,8 +54,25 @@ public class TesterSA {
     //
     // System.out.println(words.remove(2));
     // System.out.println(words.toString());
+    //
+    // System.out.println(words.remove(0));
+    // System.out.println(words.toString());
 
-    System.out.println(words.remove(0));
+    SuperArray words = new SuperArray(10);
+    words.add("kani");
+    words.add("uni");
+    words.add("ebi");
+    words.add("una");
+    words.add("una");
+    words.add("ebi");
+    words.add("kani");
+    words.add("una");
+    words.add("una");
+    words.add("ebi");
+    words.add("toro");
+
+    System.out.println(words.toString());
+    words.removeDuplicates(words);
     System.out.println(words.toString());
 
   }

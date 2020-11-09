@@ -5,8 +5,8 @@ public class SuperArray {
   // Creates an empty superArray.
   // Empty does NOT mean an empty capacity, it means no elements are stored in it (the size is 0).
   // A good starting capacity is 10.
-  public SuperArray() {
-    this.data = new String[10];
+  public SuperArray(int length) {
+    this.data = new String[length];
     this.size = 0;
   }
 
@@ -149,24 +149,23 @@ public class SuperArray {
     return newArray;
   }
 
-  public int lastIndexOf(String value){
-
+  public int lastIndexOf(String value) {
+    for (int i = this.size - 1; i >= 0; i--) {
+      if (this.data[i].equals(value)) {
+        return i;
+      }
+    }
   }
 
-
-  //
-  // public static void removeDuplicates(SuperArray s){  }
-  // public static void main(String[]args){
-  //   SuperArray words = new SuperArray();
-  //   //grouped to save vertical space
-  //   words.add("kani");   words.add("uni");     words.add("ebi");     words.add("una");
-  //   words.add("una");    words.add("ebi");     words.add("kani");    words.add("una");
-  //   words.add("una");    words.add("ebi");     words.add("toro");
-  //
-  //   System.out.println(words);
-  //   removeDuplicates(words);
-  //   System.out.println(words);
-  // }
+  public boolean equals(SuperArray other) {
+    boolean same = true;
+    for (int i = 0; i < this.size; i++) {
+      if (!this.data[i].equals(other[i])) {
+        same = false;
+      }
+    }
+    return same;
+  }
 
 
 
