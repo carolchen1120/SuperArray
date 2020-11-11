@@ -5,15 +5,22 @@ public class SuperArray {
   // Creates an empty superArray.
   // Empty does NOT mean an empty capacity, it means no elements are stored in it (the size is 0).
   // A good starting capacity is 10.
+  // Throws:
+  // IllegalArgumentException - if the specified initial capacity is negative
   public SuperArray(int length) {
+    if (length < 0) {
+      throw new IllegalArgumentException("Initial capactiy " + length + " cannot be negative.");
+    }
     this.data = new String[length];
     this.size = 0;
   }
+
 
   // Returns the number of elements in this list.
   public int size() {
     return this.size;
   }
+
 
   // Appends the specified element to the end of this list
   // -Appends the specified element to the end of this list.
@@ -28,19 +35,32 @@ public class SuperArray {
     return true;
   }
 
+
   // Returns the element at the specified position in this list. [For Now Assume the index is 0 to size-1]
+  // Throws:
+  // IndexOutOfBoundsException - if the index is out of range (index < 0 || index >= size())
   public String get(int index) {
+    if (index < 0 || index >= this.size) {
+      throw new IndexOutOfBoundsException("The index " + index + " is out of range.");
+    }
     return this.data[index];
   }
+
 
   // Replaces the element at the specified position in this list with the specified element.
   // Return the value you replaced.
   // [Assume the index is 0 to size-1] note: This is not to add new values, it is only to replace old ones.
+  // Throws:
+  // IndexOutOfBoundsException - if the index is out of range (index < 0 || index >= size())
   public String set(int index, String element) {
+    if (index < 0 || index >= this.size) {
+      throw new IndexOutOfBoundsException("The index " + index + " is out of range.");
+    }
     String value = this.data[index];
     this.data[index] = element;
     return value;
   }
+
 
   // -Increase the capacity by :
   // creating a larger array
@@ -54,10 +74,12 @@ public class SuperArray {
     this.data = newSuper;
   }
 
+
   // Returns true if this list contains no elements.
   public boolean isEmpty() {
     return (this.size == 0);
   }
+
 
   // Format "[e0, e1, e2,..., eN]" where the size is N+1
   // This only displays the elements that were added, not the empty spots
@@ -71,6 +93,7 @@ public class SuperArray {
     return answer + this.data[this.size-1] + "]";
   }
 
+
   // Returns true if this list contains the specified element.
   public boolean contains(String s) {
     for (int i = 0; i < this.size; i++) {
@@ -80,6 +103,7 @@ public class SuperArray {
     }
     return false;
   }
+
 
   // Reset the SuperArray to be size 0 again. There should be no references to any old values in the array.
   public void clear() {
@@ -96,7 +120,12 @@ public class SuperArray {
 
 
   // Inserts the specified element at the specified position in this list. Shifts the element currently at that position (if any) and any subsequent elements to the right.
+  // Throws:
+  // IndexOutOfBoundsException - if the index is out of range (index < 0 || index > size())
   public void add(int index, String element) {
+    if (index < 0 || index > this.size) {
+      throw new IndexOutOfBoundsException("The index " + index + " is out of range.");
+    }
     String[] newArray = new String[this.size+1];
     for (int i = 0; i < index; i++) {
       newArray[i] = this.data[i];
@@ -110,7 +139,12 @@ public class SuperArray {
 
 
   // Removes the element at the specified position in this list.  Shifts any subsequent elements to the left. The returned value is the element you remove.
+  // Throws:
+  // IndexOutOfBoundsException - if the index is out of range (index < 0 || index > size())
   public String remove(int index) {
+    if (index < 0 || index >= this.size) {
+      throw new IndexOutOfBoundsException("The index " + index + " is out of range.");
+    }
     String answer = this.data[index];
     String[] newArray = new String[this.size - 1];
     for (int i = 0; i < this.size; i++) {
@@ -149,6 +183,7 @@ public class SuperArray {
     return newArray;
   }
 
+
   public int lastIndexOf(String value) {
     for (int i = this.size - 1; i >= 0; i--) {
       if (this.data[i].equals(value)) {
@@ -156,6 +191,7 @@ public class SuperArray {
       }
     }
   }
+
 
   public boolean equals(SuperArray other) {
     boolean same = true;
