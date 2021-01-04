@@ -7,6 +7,11 @@ public class SuperArray {
   // A good starting capacity is 10.
   // Throws:
   // IllegalArgumentException - if the specified initial capacity is negative
+  public SuperArray() {
+    this.data = new String[10];
+    this.size = 0;
+  }
+
   public SuperArray(int length) {
     if (length < 0) {
       throw new IllegalArgumentException("Initial capactiy " + length + " cannot be negative.");
@@ -112,13 +117,6 @@ public class SuperArray {
   }
 
 
-  // Create the SuperArray with the provided starting capacity.
-  public SuperArray(int initialCapacity) {
-    this.data = new String[initialCapacity];
-    this.size = 0;
-  }
-
-
   // Inserts the specified element at the specified position in this list. Shifts the element currently at that position (if any) and any subsequent elements to the right.
   // Throws:
   // IndexOutOfBoundsException - if the index is out of range (index < 0 || index > size())
@@ -126,15 +124,26 @@ public class SuperArray {
     if (index < 0 || index > this.size) {
       throw new IndexOutOfBoundsException("The index " + index + " is out of range.");
     }
+
     String[] newArray = new String[this.size+1];
-    for (int i = 0; i < index; i++) {
-      newArray[i] = this.data[i];
+
+    if (index == this.size) {
+      for (int i = 0; i < this.size; i++) {
+        newArray[i] = this.data[i];
+      }
+      newArray[this.size] = element;
+    } else {
+      for (int i = 0; i < index; i++) {
+        newArray[i] = this.data[i];
+      }
+      newArray[index] = element;
+      for (int j = index+1; j < this.size+1; j++) {
+        newArray[j] = this.data[j-1];
+      }
     }
-    newArray[index] = element;
-    for (int j = index+1; j < this.size+1; j++) {
-      newArray[j] = this.data[j-1];
-    }
+
     this.data = newArray;
+    this.size++;
   }
 
 
@@ -190,13 +199,14 @@ public class SuperArray {
         return i;
       }
     }
+    return -1;
   }
 
 
   public boolean equals(SuperArray other) {
     boolean same = true;
     for (int i = 0; i < this.size; i++) {
-      if (!this.data[i].equals(other[i])) {
+      if (!this.get(i).equals(other.get(i))) {
         same = false;
       }
     }
